@@ -7,16 +7,23 @@ const store = createStore({
         return {
             first_name: 'William',
             last_name: 'Tomé',
-            email: 'william@teste.com'
+            email: 'william@teste.com',
+            counter: 0,
         }
     },
 
-    mutations() {
+    mutations: {
+        increment(state, value) {
+            state.counter += value
+        },
+        decrement(state, value) {
+            if (state.counter > 0) {
+                state.counter -= value
+            }
+        }
     }
 })
 
 createApp(App)
     .use(store)
     .mount('#app')
-
-console.log(store)
