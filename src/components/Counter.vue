@@ -6,7 +6,7 @@
       <button
           type="button"
           class="btn btn-outline-secondary"
-          @click.stop.prevent="remove(1)"
+          @click.stop.prevent="decrement"
       >-</button>
       <input
           type="text"
@@ -16,7 +16,7 @@
       <button
           type="button"
           class="btn btn-outline-secondary"
-          @click.stop.prevent="add(1)"
+          @click.stop.prevent="increment"
       >+</button>
     </div>
   </div>
@@ -42,16 +42,16 @@ export default {
 
   methods: {
     ...mapMutations({
-      add: 'increment',
-      remove: 'decrement',
+      $_add: 'increment',
+      $_remove: 'decrement',
     }),
 
-    // increment() {
-    //   this.$store.commit('increment', 10)
-    // },
-    // decrement() {
-    //   this.$store.commit('decrement', 10)
-    // }
+    increment() {
+      this.$_add(5)
+    },
+    decrement() {
+      this.$_remove(5)
+    }
   }
 }
 </script>
