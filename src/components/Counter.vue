@@ -11,7 +11,7 @@
       <input
           type="text"
           class="form-control"
-          :value="counter"
+          :value="counting"
       >
       <button
           type="button"
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import {mapMutations, mapState} from "vuex";
+import {mapActions, mapMutations, mapState} from "vuex";
 
 export default {
   name: 'CounterApp',
@@ -36,7 +36,7 @@ export default {
 
   computed: {
     ...mapState({
-      counter: state => state.counter
+      counting: state => state.counter
     }),
   },
 
@@ -46,11 +46,13 @@ export default {
       remove: 'decrement',
     }),
 
+    ...mapActions(['counter']),
+
     increment() {
-      this.$store.dispatch('counter', { type: 'increment', value: 5 })
+      this.counter({ type: 'increment', value: 5 })
     },
     decrement() {
-      this.$store.dispatch('counter', { type: 'decrement', value: 5 })
+      this.counter({ type: 'decrement', value: 5 })
     }
   }
 }
