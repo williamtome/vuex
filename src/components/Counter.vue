@@ -42,15 +42,15 @@ export default {
 
   methods: {
     ...mapMutations({
-      $_add: 'increment',
-      $_remove: 'decrement',
+      add: 'increment',
+      remove: 'decrement',
     }),
 
     increment() {
-      this.$_add(5)
+      this.$store.dispatch('counter', { type: 'increment', value: 5 })
     },
     decrement() {
-      this.$_remove(5)
+      this.$store.dispatch('counter', { type: 'decrement', value: 5 })
     }
   }
 }
