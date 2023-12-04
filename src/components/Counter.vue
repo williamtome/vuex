@@ -6,7 +6,7 @@
       <button
           type="button"
           class="btn btn-outline-secondary"
-          @click.stop.prevent="decrement(1)"
+          @click.stop.prevent="remove(1)"
       >-</button>
       <input
           type="text"
@@ -16,7 +16,7 @@
       <button
           type="button"
           class="btn btn-outline-secondary"
-          @click.stop.prevent="increment(1)"
+          @click.stop.prevent="add(1)"
       >+</button>
     </div>
   </div>
@@ -41,7 +41,10 @@ export default {
   },
 
   methods: {
-    ...mapMutations(['increment', 'decrement'])
+    ...mapMutations({
+      add: 'increment',
+      remove: 'decrement',
+    }),
 
     // increment() {
     //   this.$store.commit('increment', 10)
