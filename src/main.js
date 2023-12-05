@@ -9,7 +9,16 @@ const store = createStore({
             last_name: 'Tomé',
             email: 'william@teste.com',
             counter: 0,
+            posts: [
+                { id: 1, text: 'Hello' },
+                { id: 2, text: 'Olá Mundo' },
+            ],
         }
+    },
+
+    getters: {
+        fullName: state => `${state.first_name} ${state.last_name}`,
+        getPostById: state => id => state.posts.find(obj => obj.id === id)
     },
 
     mutations: {

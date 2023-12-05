@@ -1,5 +1,8 @@
 <template>
   <h1>Counter App</h1>
+  <p>{{ $store.getters.fullName }}</p>
+
+  <h2>{{ getPostById(1) }}</h2>
 
   <div class="container">
     <div class="input-group mb-3">
@@ -23,7 +26,7 @@
 </template>
 
 <script>
-import {mapActions, mapMutations, mapState} from "vuex";
+import {mapActions, mapMutations, mapState, mapGetters} from "vuex";
 
 export default {
   name: 'CounterApp',
@@ -34,10 +37,16 @@ export default {
     }
   },
 
+  created() {
+    console.log(this.getPostById(1))
+  },
+
   computed: {
     ...mapState({
       counting: state => state.counter
     }),
+
+    ...mapGetters(['getPostById']),
   },
 
   methods: {
