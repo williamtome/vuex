@@ -40,21 +40,26 @@ const store = createStore({
                 }
             },
         },
+        posts: {
+            namespaced: true,
+            state: () => ({
+                posts: [
+                    { id: 1, text: 'Hello' },
+                    { id: 2, text: 'Olá Mundo' },
+                ],
+            }),
+            getters: {
+                getPostById: state => id => state.posts.find(obj => obj.id === id),
+            }
+        }
     },
     state() {
         return {
-            first_name: 'William',
-            last_name: 'Tomé',
-            email: 'william@teste.com',
-            posts: [
-                { id: 1, text: 'Hello' },
-                { id: 2, text: 'Olá Mundo' },
-            ],
-            users: [
-                { id: 1, name: 'Fulano', age: 16 },
-                { id: 2, name: 'Maria', age: 21 },
-                { id: 3, name: 'Eduardo', age: 29 },
-            ],
+            // users: [
+            //     { id: 1, name: 'Fulano', age: 16 },
+            //     { id: 2, name: 'Maria', age: 21 },
+            //     { id: 3, name: 'Eduardo', age: 29 },
+            // ],
         }
     },
 
