@@ -42,16 +42,6 @@ import {mapActions, mapMutations, mapState, mapGetters} from "vuex";
 export default {
   name: 'CounterApp',
 
-  data() {
-    return {
-
-    }
-  },
-
-  created() {
-    console.log(this.getPostById(1))
-  },
-
   computed: {
     ...mapState({
       counting: state => state.counter
