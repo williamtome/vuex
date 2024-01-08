@@ -1,6 +1,6 @@
 <template>
   <h1>Counter App</h1>
-  <p>{{ $store.getters.fullName }}</p>
+  <p>{{ fullName }}</p>
 
   <h2>{{ getPostById(1) }}</h2>
 
@@ -46,7 +46,10 @@ export default {
       counting: state => state.counter
     }),
 
-    ...mapGetters(['getPostById']),
+    ...mapGetters({
+      getPostById: 'getPostById',
+      fullName: 'fullName',
+    }),
   },
 
   methods: {
