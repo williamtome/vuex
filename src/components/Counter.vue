@@ -2,19 +2,7 @@
   <h1>Counter App</h1>
   <p>{{ fullName }}</p>
 
-  {{ $store.state.customers.first_name }} {{ $store.state.customers.last_name }}
-  <h2>Post escolhido: {{ getPostById(1) }}</h2>
-
-  <ul>
-    <li
-        v-for="user in $store.state.users"
-        :key="user.id"
-    >
-      {{ user.name }}
-    </li>
-  </ul>
-
-  <h3>Usuário Escolhido: {{ getUserById(2).name }}</h3>
+  <h2>Post escolhido: {{ getPostById(2) }}</h2>
 
   <div class="container">
     <div class="input-group mb-3">
@@ -49,9 +37,8 @@ export default {
     }),
 
     ...mapGetters({
-      getUserById: 'getUserById',
-      getPostById: 'getPostById',
-      fullName: 'fullName',
+      getPostById: 'posts/getPostById',
+      fullName: 'customers/fullName',
     }),
   },
 
