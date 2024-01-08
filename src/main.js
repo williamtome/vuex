@@ -15,27 +15,27 @@ const store = createStore({
             mutations: {},
             actions: {},
         },
-    },
-    counter: {
-        namespaced: true,
-        state: () => ({
-            counter: 0,
-        }),
-        getters: {},
-        mutations: {
-            increment(state, value) {
-                state.counter += value
-            },
-            decrement(state, value) {
-                if (state.counter > 0) {
-                    state.counter -= value
+        counter: {
+            namespaced: true,
+            state: () => ({
+                counter: 0,
+            }),
+            getters: {},
+            mutations: {
+                increment(state, value) {
+                    state.counter += value
+                },
+                decrement(state, value) {
+                    if (state.counter > 0) {
+                        state.counter -= value
+                    }
                 }
-            }
-        },
-        actions: {
-            counter({ commit }, { type, value }) {
-                commit(type, value)
-            }
+            },
+            actions: {
+                counter({ commit }, { type, value }) {
+                    commit(type, value)
+                }
+            },
         },
     },
     state() {
