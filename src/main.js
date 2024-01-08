@@ -16,12 +16,33 @@ const store = createStore({
             actions: {},
         },
     },
+    counter: {
+        namespaced: true,
+        state: () => ({
+            counter: 0,
+        }),
+        getters: {},
+        mutations: {
+            increment(state, value) {
+                state.counter += value
+            },
+            decrement(state, value) {
+                if (state.counter > 0) {
+                    state.counter -= value
+                }
+            }
+        },
+        actions: {
+            counter({ commit }, { type, value }) {
+                commit(type, value)
+            }
+        },
+    },
     state() {
         return {
             first_name: 'William',
             last_name: 'Tomé',
             email: 'william@teste.com',
-            counter: 0,
             posts: [
                 { id: 1, text: 'Hello' },
                 { id: 2, text: 'Olá Mundo' },
@@ -40,22 +61,9 @@ const store = createStore({
         getUserById: state => id => state.users.find(user => user.id === id),
     },
 
-    mutations: {
-        increment(state, value) {
-            state.counter += value
-        },
-        decrement(state, value) {
-            if (state.counter > 0) {
-                state.counter -= value
-            }
-        }
-    },
+    mutations: {},
 
-    actions: {
-       counter({ commit }, { type, value }) {
-           commit(type, value)
-       }
-    },
+    actions: {},
 })
 
 createApp(App)
