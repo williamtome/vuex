@@ -45,7 +45,7 @@ export default {
 
   computed: {
     ...mapState({
-      counting: state => state.counter
+      counting: state => state.counter.counter
     }),
 
     ...mapGetters({
@@ -56,12 +56,12 @@ export default {
   },
 
   methods: {
-    ...mapMutations({
+    ...mapMutations('counter', {
       add: 'increment',
       remove: 'decrement',
     }),
 
-    ...mapActions(['counter']),
+    ...mapActions('counter', ['counter']),
 
     increment() {
       this.counter({ type: 'increment', value: 5 })
