@@ -12,7 +12,9 @@ const store = createStore({
                 last_name: 'Stark',
                 email: 'arya@stark.com',
             }),
-            getters: {},
+            getters: {
+                fullName: state => `${state.first_name} ${state.last_name}`,
+            },
             mutations: {},
             actions: {},
         },
@@ -57,9 +59,7 @@ const store = createStore({
     },
 
     getters: {
-        fullName: state => `${state.first_name} ${state.last_name}`,
-        getPostById: state => id => state.posts.find(obj => obj.id === id),
-        getUserById: state => id => state.users.find(user => user.id === id),
+        // getUserById: state => id => state.users.find(user => user.id === id),
     },
 
     mutations: {},
