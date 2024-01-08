@@ -6,6 +6,7 @@ const store = createStore({
     strict: true,
     modules: {
         customers: {
+            namespaced: true,
             state: () => ({
                 first_name: 'Arya',
                 last_name: 'Stark',
