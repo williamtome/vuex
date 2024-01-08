@@ -38,7 +38,7 @@ export default {
 
     ...mapGetters({
       getPostById: 'posts/getPostById',
-      fullName: 'customers/fullName',
+      fullName: 'users/fullName',
     }),
   },
 
