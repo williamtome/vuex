@@ -13,12 +13,18 @@ const store = createStore({
                 { id: 1, text: 'Hello' },
                 { id: 2, text: 'Olá Mundo' },
             ],
+            users: [
+                { id: 1, name: 'Fulano', age: 16 },
+                { id: 2, name: 'Maria', age: 21 },
+                { id: 3, name: 'Eduardo', age: 29 },
+            ],
         }
     },
 
     getters: {
         fullName: state => `${state.first_name} ${state.last_name}`,
-        getPostById: state => id => state.posts.find(obj => obj.id === id)
+        getPostById: state => id => state.posts.find(obj => obj.id === id),
+        getUserById: state => id => state.users.find(user => user.id === id),
     },
 
     mutations: {

@@ -47,6 +47,7 @@ export default {
     }),
 
     ...mapGetters({
+      getUserById: 'getUserById',
       getPostById: 'getPostById',
       fullName: 'fullName',
     }),
