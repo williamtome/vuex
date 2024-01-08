@@ -51,10 +51,10 @@ export default {
     ...mapActions('counter', ['counter']),
 
     increment() {
-      this.counter({ type: 'increment', value: 5 })
+      this.counter({ type: 'increment', value: 1 })
     },
     decrement() {
-      this.counter({ type: 'decrement', value: 5 })
+      this.counter({ type: 'decrement', value: 1 })
     }
   }
 }
