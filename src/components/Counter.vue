@@ -2,6 +2,7 @@
   <h1>Counter App</h1>
   <p>{{ fullName }}</p>
 
+  {{ $store.state.customers.first_name }} {{ $store.state.customers.last_name }}
   <h2>Post escolhido: {{ getPostById(1) }}</h2>
 
   <ul>

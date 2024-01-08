@@ -3,6 +3,19 @@ import { createStore } from 'vuex'
 import App from './App.vue'
 
 const store = createStore({
+    strict: true,
+    modules: {
+        customers: {
+            state: () => ({
+                first_name: 'Arya',
+                last_name: 'Stark',
+                email: 'arya@stark.com',
+            }),
+            getters: {},
+            mutations: {},
+            actions: {},
+        },
+    },
     state() {
         return {
             first_name: 'William',
