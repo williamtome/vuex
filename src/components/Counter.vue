@@ -2,7 +2,18 @@
   <h1>Counter App</h1>
   <p>{{ fullName }}</p>
 
-  <h2>{{ getPostById(1) }}</h2>
+  <h2>Post escolhido: {{ getPostById(1) }}</h2>
+
+  <ul>
+    <li
+        v-for="user in $store.state.users"
+        :key="user.id"
+    >
+      {{ user.name }}
+    </li>
+  </ul>
+
+  <h3>Usuário Escolhido: {{ getUserById(2).name }}</h3>
 
   <div class="container">
     <div class="input-group mb-3">
